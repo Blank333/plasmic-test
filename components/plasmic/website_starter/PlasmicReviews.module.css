@@ -1,0 +1,127 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__zl7H9 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: auto;
+  min-width: 0;
+  padding: 8px;
+}
+.img {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 64px;
+  height: 64px;
+  display: block !important;
+  flex-shrink: 0;
+}
+.img > picture > img {
+  object-fit: cover;
+}
+.freeBox___5CFbW {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: auto;
+  padding: 8px;
+}
+.freeBox___5CFbW > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: calc(0px - 16px);
+  height: calc(100% + 16px);
+}
+.freeBox___5CFbW > :global(.__wab_flex-container) > *,
+.freeBox___5CFbW > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox___5CFbW > :global(.__wab_flex-container) > picture > img,
+.freeBox___5CFbW
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 16px;
+}
+.text__mze1C {
+  display: block;
+  font-size: 28px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 1);
+  position: relative;
+}
+.text__v4UY6 {
+  display: block;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 100%;
+  color: rgba(102, 102, 102, 1);
+  position: relative;
+}
+.freeBox__tplkd {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+.svg {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  color: #00c520;
+  width: 16px;
+  height: 15px;
+  display: block;
+  flex-shrink: 0;
+}
+.text__lty9Y {
+  display: block;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 1.36;
+  color: rgba(51, 51, 51, 1);
+  position: relative;
+}
+.text__s0QhH {
+  display: block;
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0em;
+  line-height: 1.36;
+  color: rgba(51, 51, 51, 1);
+  position: relative;
+  width: 840px;
+  align-self: flex-start;
+}

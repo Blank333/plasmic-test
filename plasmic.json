@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -41,10 +41,182 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/"
+        },
+        {
+          "id": "nzUeeW99LIVl",
+          "name": "Component2",
+          "type": "managed",
+          "projectId": "8ezVBUfhxTZRVwYwN3N5yL",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicComponent2.jsx",
+          "importSpec": {
+            "modulePath": "Component2.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicComponent2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Mk2LrAAMfItq",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "8ezVBUfhxTZRVwYwN3N5yL",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicButton.jsx",
+          "importSpec": {
+            "modulePath": "Button.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        },
+        {
+          "id": "vuK03WDG9KmD",
+          "name": "Reviews",
+          "type": "managed",
+          "projectId": "8ezVBUfhxTZRVwYwN3N5yL",
+          "renderModuleFilePath": "plasmic/website_starter/PlasmicReviews.jsx",
+          "importSpec": {
+            "modulePath": "Reviews.jsx"
+          },
+          "cssFilePath": "plasmic/website_starter/PlasmicReviews.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
-      "icons": [],
-      "images": [],
+      "icons": [
+        {
+          "id": "JTfMJQkFiSGp",
+          "name": "Line2Icon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Line2.jsx"
+        },
+        {
+          "id": "XDVABuU6lq1k",
+          "name": "ArrowIcon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Arrow.jsx"
+        },
+        {
+          "id": "un-WH7MsARJK",
+          "name": "Line6Icon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Line6.jsx"
+        },
+        {
+          "id": "5gSvYEif6wmd",
+          "name": "Frame1000006008Icon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Frame1000006008.jsx"
+        },
+        {
+          "id": "0JyQ0i6OVRYN",
+          "name": "Star1Icon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Star1.jsx"
+        },
+        {
+          "id": "abdhKhLq5eeF",
+          "name": "Frame1000006044Icon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Frame1000006044.jsx"
+        },
+        {
+          "id": "3CgKVHLDeTbq",
+          "name": "Frame1000006045Icon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Frame1000006045.jsx"
+        },
+        {
+          "id": "Fxrb0pHgOXY5",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Checksvg.jsx"
+        },
+        {
+          "id": "YkbMSN9iL4_2",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/website_starter/icons/PlasmicIcon__Icon.jsx"
+        }
+      ],
+      "images": [
+        {
+          "id": "G0bAW9pXeLuA",
+          "name": "Hero Image",
+          "filePath": "../public/plasmic/website_starter/images/heroImage.jpg"
+        },
+        {
+          "id": "gmd_sdDInqqF",
+          "name": "Logo",
+          "filePath": "../public/plasmic/website_starter/images/logo.png"
+        },
+        {
+          "id": "ktd0lwI2w2d4",
+          "name": "Rectangle 11",
+          "filePath": "../public/plasmic/website_starter/images/rectangle11.jpg"
+        },
+        {
+          "id": "1ookdHoWoun_",
+          "name": "Rectangle 19",
+          "filePath": "../public/plasmic/website_starter/images/rectangle19.jpg"
+        },
+        {
+          "id": "8xToOYLQJ8Lr",
+          "name": "Rectangle 18",
+          "filePath": "../public/plasmic/website_starter/images/rectangle18.jpg"
+        },
+        {
+          "id": "H-O1AbMRrmbj",
+          "name": "Image",
+          "filePath": "../public/plasmic/website_starter/images/image.jpg"
+        },
+        {
+          "id": "XjvDftp7DlCO",
+          "name": "Rectangle 20",
+          "filePath": "../public/plasmic/website_starter/images/rectangle20.jpg"
+        },
+        {
+          "id": "Th777GleTeuk",
+          "name": "Rectangle 22",
+          "filePath": "../public/plasmic/website_starter/images/rectangle22.png"
+        },
+        {
+          "id": "_nNJL8bRh1vC",
+          "name": "Rectangle 21",
+          "filePath": "../public/plasmic/website_starter/images/rectangle21.jpg"
+        },
+        {
+          "id": "2enPPjXE6Mu-",
+          "name": "Ellipse 5",
+          "filePath": "../public/plasmic/website_starter/images/ellipse5.jpg"
+        },
+        {
+          "id": "_Z1xAbn-UQMt",
+          "name": "Ellipse 6",
+          "filePath": "../public/plasmic/website_starter/images/ellipse6.jpg"
+        },
+        {
+          "id": "zHdwKfrdCwaB",
+          "name": "Ellipse 7",
+          "filePath": "../public/plasmic/website_starter/images/ellipse7.jpg"
+        },
+        {
+          "id": "J0yo-u5b7yWA",
+          "name": "Ellipse 8",
+          "filePath": "../public/plasmic/website_starter/images/ellipse8.jpg"
+        },
+        {
+          "id": "VdD6P5Z-OSxw",
+          "name": "Ellipse 1",
+          "filePath": "../public/plasmic/website_starter/images/ellipse1.svg"
+        },
+        {
+          "id": "ni3zZVDDsL2B",
+          "name": "Ellipse 2",
+          "filePath": "../public/plasmic/website_starter/images/ellipse2.svg"
+        },
+        {
+          "id": "p8wYsuah_qhj",
+          "name": "Ellipse 3",
+          "filePath": "../public/plasmic/website_starter/images/ellipse3.svg"
+        },
+        {
+          "id": "88HLp7Z16yPS",
+          "name": "Ellipse 4",
+          "filePath": "../public/plasmic/website_starter/images/ellipse4.svg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",

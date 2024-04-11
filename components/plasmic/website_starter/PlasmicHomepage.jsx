@@ -12,15 +12,19 @@ import * as React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import {
+  Stack as Stack__,
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
   useCurrentUser
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
+import Button from "../../Button"; // plasmic-import: Mk2LrAAMfItq/component
+import Reviews from "../../Reviews"; // plasmic-import: vuK03WDG9KmD/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 8ezVBUfhxTZRVwYwN3N5yL/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: 0bDiwzUEHDAP/css
+import Frame1000006008Icon from "./icons/PlasmicIcon__Frame1000006008"; // plasmic-import: 5gSvYEif6wmd/icon
 
 createPlasmicElementProxy;
 
@@ -74,50 +78,220 @@ function PlasmicHomepage__RenderFunc(props) {
             sty.root
           )}
         >
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+          <h1
+            data-plasmic-name={"h1"}
+            data-plasmic-override={overrides.h1}
+            className={classNames(
+              projectcss.all,
+              projectcss.h1,
+              projectcss.__wab_text,
+              sty.h1
+            )}
           >
-            <h1
-              data-plasmic-name={"h1"}
-              data-plasmic-override={overrides.h1}
-              className={classNames(
-                projectcss.all,
-                projectcss.h1,
-                projectcss.__wab_text,
-                sty.h1
-              )}
-            >
-              {"Welcome to your first page."}
-            </h1>
+            {"Reviews"}
+          </h1>
+          <section
+            data-plasmic-name={"main"}
+            data-plasmic-override={overrides.main}
+            className={classNames(projectcss.all, sty.main)}
+          >
             <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
+              data-plasmic-name={"overallReview"}
+              data-plasmic-override={overrides.overallReview}
+              className={classNames(projectcss.all, sty.overallReview)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__jCWu)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pH3Zd
+                  )}
+                >
+                  {"5.0"}
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__g8Os6)}>
+                  <Stack__
+                    as={Frame1000006008Icon}
+                    data-plasmic-name={"svg"}
+                    data-plasmic-override={overrides.svg}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.svg)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__p8Cxx
+                    )}
+                  >
+                    {"1000 Reviews"}
+                  </div>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__g6Cyh
+                  )}
+                >
+                  {"Very Good"}
+                </div>
+              </div>
+              <Button
+                className={classNames("__wab_instance", sty.button__lSu6I)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__gCx
+                  )}
+                >
+                  {"Write a Review"}
+                </div>
+              </Button>
+            </div>
+            {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+              (() => {
+                try {
+                  return [
+                    {
+                      imageUrl:
+                        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+                      name: "Freida Varnes",
+                      rating: 5.0,
+                      content:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
+                      timeCreated: "1"
+                    },
+                    {
+                      imageUrl:
+                        "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+                      name: "Marx Heshley",
+                      rating: 4.0,
+                      content:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
+                      timeCreated: "2"
+                    },
+                    {
+                      imageUrl:
+                        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+                      name: "Cyndy Lillibridge",
+                      rating: 3.0,
+                      content:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
+                      timeCreated: "3"
+                    },
+                    {
+                      imageUrl:
+                        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+                      name: "Georgette Strobel",
+                      rating: 4.0,
+                      content:
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
+                      timeCreated: "5"
+                    }
+                  ];
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return [];
+                  }
+                  throw e;
+                }
+              })()
+            ).map((__plasmic_item_0, __plasmic_idx_0) => {
+              const currentItem = __plasmic_item_0;
+              const currentIndex = __plasmic_idx_0;
+              return (
+                <Reviews
+                  data-plasmic-name={"reviews"}
+                  data-plasmic-override={overrides.reviews}
+                  className={classNames("__wab_instance", sty.reviews)}
+                  content={(() => {
+                    try {
+                      return currentItem.content;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  createdAt={(() => {
+                    try {
+                      return currentItem.timeCreated;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  imageUrl={(() => {
+                    try {
+                      return currentItem.imageUrl;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  key={currentIndex}
+                  name={(() => {
+                    try {
+                      return currentItem.name;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  rating={(() => {
+                    try {
+                      return currentItem.rating;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
+                />
+              );
+            })}
+            <div
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text
+                sty.button
               )}
             >
-              <React.Fragment>
-                <React.Fragment>
-                  {
-                    "If you haven't already done so, go back and learn the basics by going through the Plasmic Levels tutorial.\n\nIt's always easier to start from examples! Add a new page using a template\u2014do this from the list of pages in the top toolbar.\n\nOr press the big blue + button to start inserting items into this page.\n\nIntegrate this project into your codebase\u2014press the "
-                  }
-                </React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"Code"}
-                </span>
-                <React.Fragment>
-                  {
-                    " button in the top right and follow the quickstart instructions.\n\nJoin our Slack community (icon in bottom left) for help any time."
-                  }
-                </React.Fragment>
-              </React.Fragment>
+              {"Load More Reviews"}
             </div>
           </section>
         </div>
@@ -127,10 +301,13 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1", "text"],
-  section: ["section", "h1", "text"],
+  root: ["root", "h1", "main", "overallReview", "svg", "reviews", "button"],
   h1: ["h1"],
-  text: ["text"]
+  main: ["main", "overallReview", "svg", "reviews", "button"],
+  overallReview: ["overallReview", "svg"],
+  svg: ["svg"],
+  reviews: ["reviews"],
+  button: ["button"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -165,9 +342,12 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
-    text: makeNodeComponent("text"),
+    main: makeNodeComponent("main"),
+    overallReview: makeNodeComponent("overallReview"),
+    svg: makeNodeComponent("svg"),
+    reviews: makeNodeComponent("reviews"),
+    button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,
