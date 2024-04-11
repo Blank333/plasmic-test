@@ -26,6 +26,11 @@ import {
   useDollarState
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 import Dialog from "../../Dialog"; // plasmic-import: IgWNcDVMzOb8/component
 import Button from "../../Button"; // plasmic-import: Mk2LrAAMfItq/component
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
@@ -33,10 +38,11 @@ import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Fo
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdRate } from "@plasmicpkgs/antd5/skinny/registerRate";
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import Reviews from "../../Reviews"; // plasmic-import: vuK03WDG9KmD/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -129,7 +135,7 @@ function PlasmicHomepage__RenderFunc(props) {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return false;
+                return undefined;
               }
               throw e;
             }
@@ -184,6 +190,41 @@ function PlasmicHomepage__RenderFunc(props) {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dialog2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.form2.isSubmitting;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "form2.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        refName: "form2",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form2.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+        refName: "form2",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
       }
     ],
 
@@ -195,6 +236,8 @@ function PlasmicHomepage__RenderFunc(props) {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
   return (
     <React.Fragment>
       <Head></Head>
@@ -221,23 +264,227 @@ function PlasmicHomepage__RenderFunc(props) {
             sty.root
           )}
         >
-          <h1
-            data-plasmic-name={"h1"}
-            data-plasmic-override={overrides.h1}
-            className={classNames(
-              projectcss.all,
-              projectcss.h1,
-              projectcss.__wab_text,
-              sty.h1
-            )}
-          >
-            {"Reviews"}
-          </h1>
           <section
-            data-plasmic-name={"main"}
-            data-plasmic-override={overrides.main}
-            className={classNames(projectcss.all, sty.main)}
+            data-plasmic-name={"orders"}
+            data-plasmic-override={overrides.orders}
+            className={classNames(projectcss.all, sty.orders)}
           >
+            <h1
+              className={classNames(
+                projectcss.all,
+                projectcss.h1,
+                projectcss.__wab_text,
+                sty.h1__gmgY7
+              )}
+            >
+              {"Orders"}
+            </h1>
+            <section className={classNames(projectcss.all, sty.section__iJyh1)}>
+              <Dialog
+                data-plasmic-name={"dialog2"}
+                data-plasmic-override={overrides.dialog2}
+                body={
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__ypXfa)}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        className: classNames("__wab_instance", sty.form2),
+                        extendedOnValuesChange:
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "value",
+                            ["form2", "value"],
+                            FormWrapper_Helpers
+                          ),
+                        formItems: undefined,
+                        labelCol: { span: 8, horizontalOnly: true },
+                        layout: "vertical",
+                        mode: undefined,
+                        onFinish: async values => {
+                          const $steps = {};
+                          $steps["graphqlMutation"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "bJwxQE7ioDTwsodJyG3erx",
+                                    opId: "2f45364d-a1e5-4977-b0a3-8f6ee5aaa2ba",
+                                    userArgs: {
+                                      variables: [
+                                        $state.form2.value.productId,
+                                        $state.form2.value.quantity
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: null,
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["graphqlMutation"] != null &&
+                            typeof $steps["graphqlMutation"] === "object" &&
+                            typeof $steps["graphqlMutation"].then === "function"
+                          ) {
+                            $steps["graphqlMutation"] = await $steps[
+                              "graphqlMutation"
+                            ];
+                          }
+                        },
+                        onIsSubmittingChange:
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "isSubmitting",
+                            ["form2", "isSubmitting"],
+                            FormWrapper_Helpers
+                          ),
+                        ref: ref => {
+                          $refs["form2"] = ref;
+                        },
+                        wrapperCol: { span: 16, horizontalOnly: true }
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "value",
+                            plasmicStateName: "form2.value"
+                          },
+                          {
+                            name: "isSubmitting",
+                            plasmicStateName: "form2.isSubmitting"
+                          }
+                        ],
+
+                        [],
+                        FormWrapper_Helpers ?? {},
+                        child$Props
+                      );
+                      return (
+                        <FormWrapper
+                          data-plasmic-name={"form2"}
+                          data-plasmic-override={overrides.form2}
+                          {...child$Props}
+                        >
+                          <FormItemWrapper
+                            className={classNames(
+                              "__wab_instance",
+                              sty.formField__wt8K
+                            )}
+                            label={"Product ID"}
+                            name={"productId"}
+                            rules={[{ ruleType: "required" }]}
+                          >
+                            <AntdInput
+                              className={classNames(
+                                "__wab_instance",
+                                sty.input___5R189
+                              )}
+                            />
+                          </FormItemWrapper>
+                          <FormItemWrapper
+                            className={classNames(
+                              "__wab_instance",
+                              sty.formField___4PEG
+                            )}
+                            initialValue={1}
+                            label={"Quantity"}
+                            name={"quantity"}
+                            rules={[{ ruleType: "required" }]}
+                          >
+                            <AntdInputNumber
+                              className={classNames(
+                                "__wab_instance",
+                                sty.numberInput
+                              )}
+                              type={"number"}
+                            />
+                          </FormItemWrapper>
+                          <AntdButton
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button__zrQa4
+                            )}
+                            submitsForm={true}
+                            type={"primary"}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__wCdM
+                              )}
+                            >
+                              {"Submit"}
+                            </div>
+                          </AntdButton>
+                        </FormWrapper>
+                      );
+                    })()}
+                  </Stack__>
+                }
+                className={classNames("__wab_instance", sty.dialog2)}
+                onOpenChange={generateStateOnChangeProp($state, [
+                  "dialog2",
+                  "open"
+                ])}
+                open={generateStateValueProp($state, ["dialog2", "open"])}
+                title={"Add order"}
+                trigger={
+                  <Button color={"softSand"}>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hb1Tz
+                      )}
+                    >
+                      {"Place Order"}
+                    </div>
+                  </Button>
+                }
+              />
+            </section>
+          </section>
+          <section
+            data-plasmic-name={"reviews2"}
+            data-plasmic-override={overrides.reviews2}
+            className={classNames(projectcss.all, sty.reviews2)}
+          >
+            <h1
+              className={classNames(
+                projectcss.all,
+                projectcss.h1,
+                projectcss.__wab_text,
+                sty.h1__f0TtS
+              )}
+            >
+              {"Reviews"}
+            </h1>
             <div className={classNames(projectcss.all, sty.freeBox__roADe)}>
               <div
                 data-plasmic-name={"overallReview"}
@@ -396,6 +643,7 @@ function PlasmicHomepage__RenderFunc(props) {
                           )}
                           label={"Name"}
                           name={"name"}
+                          rules={[{ ruleType: "required" }]}
                         >
                           {(() => {
                             const child$Props = {
@@ -965,8 +1213,11 @@ function PlasmicHomepage__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
-    "h1",
-    "main",
+    "orders",
+    "dialog2",
+    "form2",
+    "numberInput",
+    "reviews2",
     "overallReview",
     "svg",
     "dialog",
@@ -979,9 +1230,12 @@ const PlasmicDescendants = {
     "reviews"
   ],
 
-  h1: ["h1"],
-  main: [
-    "main",
+  orders: ["orders", "dialog2", "form2", "numberInput"],
+  dialog2: ["dialog2", "form2", "numberInput"],
+  form2: ["form2", "numberInput"],
+  numberInput: ["numberInput"],
+  reviews2: [
+    "reviews2",
     "overallReview",
     "svg",
     "dialog",
@@ -1049,8 +1303,11 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    h1: makeNodeComponent("h1"),
-    main: makeNodeComponent("main"),
+    orders: makeNodeComponent("orders"),
+    dialog2: makeNodeComponent("dialog2"),
+    form2: makeNodeComponent("form2"),
+    numberInput: makeNodeComponent("numberInput"),
+    reviews2: makeNodeComponent("reviews2"),
     overallReview: makeNodeComponent("overallReview"),
     svg: makeNodeComponent("svg"),
     dialog: makeNodeComponent("dialog"),
