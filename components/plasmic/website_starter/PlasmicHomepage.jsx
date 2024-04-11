@@ -95,64 +95,221 @@ function PlasmicHomepage__RenderFunc(props) {
             data-plasmic-override={overrides.main}
             className={classNames(projectcss.all, sty.main)}
           >
-            <div
-              data-plasmic-name={"overallReview"}
-              data-plasmic-override={overrides.overallReview}
-              className={classNames(projectcss.all, sty.overallReview)}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__jCWu)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pH3Zd
-                  )}
-                >
-                  {"5.0"}
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__g8Os6)}>
-                  <Stack__
-                    as={Frame1000006008Icon}
-                    data-plasmic-name={"svg"}
-                    data-plasmic-override={overrides.svg}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.svg)}
-                    role={"img"}
-                  />
-
+            <div className={classNames(projectcss.all, sty.freeBox__roADe)}>
+              <div
+                data-plasmic-name={"overallReview"}
+                data-plasmic-override={overrides.overallReview}
+                className={classNames(projectcss.all, sty.overallReview)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__jCWu)}>
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__p8Cxx
+                      sty.text__pH3Zd
                     )}
                   >
-                    {"1000 Reviews"}
+                    {"5.0"}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__g8Os6)}
+                  >
+                    <Stack__
+                      as={Frame1000006008Icon}
+                      data-plasmic-name={"svg"}
+                      data-plasmic-override={overrides.svg}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.svg)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__p8Cxx
+                      )}
+                    >
+                      {"1000 Reviews"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__g6Cyh
+                    )}
+                  >
+                    {"Very Good"}
                   </div>
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__g6Cyh
-                  )}
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
                 >
-                  {"Very Good"}
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gCx
+                    )}
+                  >
+                    {"Write a Review"}
+                  </div>
+                </Button>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__nJwS)}>
+                <div className={classNames(projectcss.all, sty.freeBox__b6UvF)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__jRvNg)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__a3JM
+                      )}
+                    >
+                      {"Quality of Service\n"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___9EbHz
+                      )}
+                    >
+                      {"5.0"}
+                    </div>
+                  </Stack__>
+                  <section
+                    className={classNames(projectcss.all, sty.section__pnSiU)}
+                  />
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__h8FCh)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__jnK2J)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__trS5X
+                      )}
+                    >
+                      {"Response Time"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__p3QbO
+                      )}
+                    >
+                      {"5.0"}
+                    </div>
+                  </Stack__>
+                  <section
+                    className={classNames(projectcss.all, sty.section__tVdcH)}
+                  />
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__ipC8N)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__cYs0B)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pD7D
+                      )}
+                    >
+                      {"Professionalism"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__qdKbO
+                      )}
+                    >
+                      {"5.0"}
+                    </div>
+                  </Stack__>
+                  <section
+                    className={classNames(projectcss.all, sty.section__ojS2)}
+                  />
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___9QtTn)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__wW7M4)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rAv7W
+                      )}
+                    >
+                      {"Value"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__dHmU
+                      )}
+                    >
+                      {"5.0"}
+                    </div>
+                  </Stack__>
+                  <section
+                    className={classNames(projectcss.all, sty.section__us0H)}
+                  />
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___3NcJo)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__t78X2)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__r905K
+                      )}
+                    >
+                      {"Flexibility"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__o2RUr
+                      )}
+                    >
+                      {"5.0"}
+                    </div>
+                  </Stack__>
+                  <section
+                    className={classNames(projectcss.all, sty.section__xT0Pq)}
+                  />
                 </div>
               </div>
-              <Button
-                className={classNames("__wab_instance", sty.button__lSu6I)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gCx
-                  )}
-                >
-                  {"Write a Review"}
-                </div>
-              </Button>
             </div>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
@@ -283,12 +440,10 @@ function PlasmicHomepage__RenderFunc(props) {
               );
             })}
             <div
-              data-plasmic-name={"button"}
-              data-plasmic-override={overrides.button}
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.button
+                sty.text__j8QRn
               )}
             >
               {"Load More Reviews"}
@@ -301,13 +456,13 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "main", "overallReview", "svg", "reviews", "button"],
+  root: ["root", "h1", "main", "overallReview", "svg", "button", "reviews"],
   h1: ["h1"],
-  main: ["main", "overallReview", "svg", "reviews", "button"],
-  overallReview: ["overallReview", "svg"],
+  main: ["main", "overallReview", "svg", "button", "reviews"],
+  overallReview: ["overallReview", "svg", "button"],
   svg: ["svg"],
-  reviews: ["reviews"],
-  button: ["button"]
+  button: ["button"],
+  reviews: ["reviews"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -346,8 +501,8 @@ export const PlasmicHomepage = Object.assign(
     main: makeNodeComponent("main"),
     overallReview: makeNodeComponent("overallReview"),
     svg: makeNodeComponent("svg"),
-    reviews: makeNodeComponent("reviews"),
     button: makeNodeComponent("button"),
+    reviews: makeNodeComponent("reviews"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,
