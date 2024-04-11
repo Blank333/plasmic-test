@@ -16,12 +16,28 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
-  useCurrentUser
+  generateOnMutateForSpec,
+  generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
+  generateStateValueProp,
+  get as $stateGet,
+  initializeCodeComponentStates,
+  useCurrentUser,
+  useDollarState
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
+import Dialog from "../../Dialog"; // plasmic-import: IgWNcDVMzOb8/component
 import Button from "../../Button"; // plasmic-import: Mk2LrAAMfItq/component
+import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
+import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
+import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import Reviews from "../../Reviews"; // plasmic-import: vuK03WDG9KmD/component
 import "@plasmicapp/react-web/lib/plasmic.css";
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 8ezVBUfhxTZRVwYwN3N5yL/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: 0bDiwzUEHDAP/css
 import Frame1000006008Icon from "./icons/PlasmicIcon__Frame1000006008"; // plasmic-import: 5gSvYEif6wmd/icon
@@ -30,7 +46,7 @@ createPlasmicElementProxy;
 
 export const PlasmicHomepage__VariantProps = new Array();
 
-export const PlasmicHomepage__ArgProps = new Array();
+export const PlasmicHomepage__ArgProps = new Array("onClick");
 
 const $$ = {};
 
@@ -53,6 +69,83 @@ function PlasmicHomepage__RenderFunc(props) {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
   const currentUser = useCurrentUser?.() || {};
+  const stateSpecs = React.useMemo(
+    () => [
+      {
+        path: "reviews",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            imageUrl:
+              "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+            name: "Freida Varnes",
+            rating: 5,
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
+            createdAt: "5"
+          },
+          {
+            imageUrl:
+              "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+            name: "Marx Heshley",
+            rating: 4,
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
+            createdAt: "4"
+          },
+          {
+            imageUrl:
+              "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+            name: "Cyndy Lillibridge",
+            rating: 3,
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
+            createdAt: "3"
+          },
+          {
+            imageUrl:
+              "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+            name: "Georgette Strobel",
+            rating: 4,
+            content:
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
+            createdAt: "1"
+          }
+        ]
+      },
+      {
+        path: "dialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "form.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        refName: "form",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+        refName: "form",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      }
+    ],
+
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
   return (
     <React.Fragment>
       <Head></Head>
@@ -75,6 +168,7 @@ function PlasmicHomepage__RenderFunc(props) {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.root
           )}
         >
@@ -143,21 +237,225 @@ function PlasmicHomepage__RenderFunc(props) {
                     {"Very Good"}
                   </div>
                 </div>
-                <Button
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gCx
-                    )}
-                  >
-                    {"Write a Review"}
-                  </div>
-                </Button>
+                <Dialog
+                  data-plasmic-name={"dialog"}
+                  data-plasmic-override={overrides.dialog}
+                  body={(() => {
+                    const child$Props = {
+                      className: classNames("__wab_instance", sty.form),
+                      extendedOnValuesChange:
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["form", "value"],
+                          FormWrapper_Helpers
+                        ),
+                      formItems: undefined,
+                      labelCol: (() => {
+                        const __composite = { span: 8, horizontalOnly: null };
+                        __composite["horizontalOnly"] = true;
+                        return __composite;
+                      })(),
+                      layout: "vertical",
+                      mode: undefined,
+                      onFinish: async values => {
+                        const $steps = {};
+                        $steps["updateReviews"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["reviews"]
+                                },
+                                operation: 5,
+                                value: $state.form.value
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+                                const arr = $stateGet(objRoot, variablePath);
+                                arr.push(value);
+                                return arr;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateReviews"] != null &&
+                          typeof $steps["updateReviews"] === "object" &&
+                          typeof $steps["updateReviews"].then === "function"
+                        ) {
+                          $steps["updateReviews"] = await $steps[
+                            "updateReviews"
+                          ];
+                        }
+                      },
+                      onIsSubmittingChange:
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "isSubmitting",
+                          ["form", "isSubmitting"],
+                          FormWrapper_Helpers
+                        ),
+                      ref: ref => {
+                        $refs["form"] = ref;
+                      },
+                      wrapperCol: { span: 16, horizontalOnly: true }
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "form.value"
+                        },
+                        {
+                          name: "isSubmitting",
+                          plasmicStateName: "form.isSubmitting"
+                        }
+                      ],
+
+                      [],
+                      FormWrapper_Helpers ?? {},
+                      child$Props
+                    );
+                    return (
+                      <FormWrapper
+                        data-plasmic-name={"form"}
+                        data-plasmic-override={overrides.form}
+                        {...child$Props}
+                      >
+                        <FormItemWrapper
+                          className={classNames(
+                            "__wab_instance",
+                            sty.formField__quOkH
+                          )}
+                          label={"Name"}
+                          name={"name"}
+                        >
+                          <AntdInput
+                            className={classNames(
+                              "__wab_instance",
+                              sty.input__eFqgW
+                            )}
+                          />
+                        </FormItemWrapper>
+                        <FormItemWrapper
+                          className={classNames(
+                            "__wab_instance",
+                            sty.formField___9Y0QZ
+                          )}
+                          initialValue={5}
+                          label={"Rating"}
+                          name={"rating"}
+                        >
+                          <AntdInputNumber
+                            className={classNames(
+                              "__wab_instance",
+                              sty.numberInput
+                            )}
+                            type={"number"}
+                          />
+                        </FormItemWrapper>
+                        <FormItemWrapper
+                          className={classNames(
+                            "__wab_instance",
+                            sty.formField__lssSx
+                          )}
+                          label={"Review"}
+                          name={"content"}
+                        >
+                          <AntdTextArea
+                            className={classNames(
+                              "__wab_instance",
+                              sty.textArea
+                            )}
+                          />
+                        </FormItemWrapper>
+                        <FormItemWrapper
+                          className={classNames(
+                            "__wab_instance",
+                            sty.formField___6MRap
+                          )}
+                          hidden={true}
+                          initialValue={"0"}
+                          label={""}
+                          name={"createdAt"}
+                        >
+                          <AntdInput
+                            className={classNames(
+                              "__wab_instance",
+                              sty.input___5JqwK
+                            )}
+                          />
+                        </FormItemWrapper>
+                        <FormItemWrapper
+                          className={classNames(
+                            "__wab_instance",
+                            sty.formField__bk79O
+                          )}
+                          hidden={true}
+                          initialValue={
+                            "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+                          }
+                          label={""}
+                          name={"imageUrl"}
+                        >
+                          <AntdInput
+                            className={classNames(
+                              "__wab_instance",
+                              sty.input__obekk
+                            )}
+                          />
+                        </FormItemWrapper>
+                        <AntdButton
+                          className={classNames(
+                            "__wab_instance",
+                            sty.button___3Rj4W
+                          )}
+                          submitsForm={true}
+                          type={"primary"}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__xsaCy
+                            )}
+                          >
+                            {"Submit"}
+                          </div>
+                        </AntdButton>
+                      </FormWrapper>
+                    );
+                  })()}
+                  className={classNames("__wab_instance", sty.dialog)}
+                  onOpenChange={generateStateOnChangeProp($state, [
+                    "dialog",
+                    "open"
+                  ])}
+                  open={generateStateValueProp($state, ["dialog", "open"])}
+                  title={"Write a review"}
+                  trigger={
+                    <Button color={"softSand"}>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__qt7To
+                        )}
+                      >
+                        {"Write a review"}
+                      </div>
+                    </Button>
+                  }
+                />
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__nJwS)}>
                 <div className={classNames(projectcss.all, sty.freeBox__b6UvF)}>
@@ -314,44 +612,7 @@ function PlasmicHomepage__RenderFunc(props) {
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
-                  return [
-                    {
-                      imageUrl:
-                        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
-                      name: "Freida Varnes",
-                      rating: 5.0,
-                      content:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
-                      timeCreated: "1"
-                    },
-                    {
-                      imageUrl:
-                        "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvcnRyYWl0fGVufDB8fDB8fHww",
-                      name: "Marx Heshley",
-                      rating: 4.0,
-                      content:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
-                      timeCreated: "2"
-                    },
-                    {
-                      imageUrl:
-                        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
-                      name: "Cyndy Lillibridge",
-                      rating: 3.0,
-                      content:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
-                      timeCreated: "3"
-                    },
-                    {
-                      imageUrl:
-                        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
-                      name: "Georgette Strobel",
-                      rating: 4.0,
-                      content:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vel suscipit ligula, et semper ligula. Donec lacinia, nunc posuere semper vehicula, nunc elit feugiat massa, in sodales lectus tortor scelerisque leo. Etiam mollis augue at tortor sagittis, ut semper nibh porta. Integer porttitor eros vel sodales consectetur. In eros sapien, feugiat in nibh at, gravida vulputate diam.",
-                      timeCreated: "5"
-                    }
-                  ];
+                  return $state.reviews;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -385,7 +646,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   })()}
                   createdAt={(() => {
                     try {
-                      return currentItem.timeCreated;
+                      return currentItem.createdAt;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -456,12 +717,45 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "main", "overallReview", "svg", "button", "reviews"],
+  root: [
+    "root",
+    "h1",
+    "main",
+    "overallReview",
+    "svg",
+    "dialog",
+    "form",
+    "numberInput",
+    "textArea",
+    "reviews"
+  ],
+
   h1: ["h1"],
-  main: ["main", "overallReview", "svg", "button", "reviews"],
-  overallReview: ["overallReview", "svg", "button"],
+  main: [
+    "main",
+    "overallReview",
+    "svg",
+    "dialog",
+    "form",
+    "numberInput",
+    "textArea",
+    "reviews"
+  ],
+
+  overallReview: [
+    "overallReview",
+    "svg",
+    "dialog",
+    "form",
+    "numberInput",
+    "textArea"
+  ],
+
   svg: ["svg"],
-  button: ["button"],
+  dialog: ["dialog", "form", "numberInput", "textArea"],
+  form: ["form", "numberInput", "textArea"],
+  numberInput: ["numberInput"],
+  textArea: ["textArea"],
   reviews: ["reviews"]
 };
 
@@ -501,7 +795,10 @@ export const PlasmicHomepage = Object.assign(
     main: makeNodeComponent("main"),
     overallReview: makeNodeComponent("overallReview"),
     svg: makeNodeComponent("svg"),
-    button: makeNodeComponent("button"),
+    dialog: makeNodeComponent("dialog"),
+    form: makeNodeComponent("form"),
+    numberInput: makeNodeComponent("numberInput"),
+    textArea: makeNodeComponent("textArea"),
     reviews: makeNodeComponent("reviews"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

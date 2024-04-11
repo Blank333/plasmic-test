@@ -20,6 +20,7 @@ import {
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import "@plasmicapp/react-web/lib/plasmic.css";
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 8ezVBUfhxTZRVwYwN3N5yL/projectcss
 import sty from "./PlasmicReviews.module.css"; // plasmic-import: vuK03WDG9KmD/css
 import Star1Icon from "./icons/PlasmicIcon__Star1"; // plasmic-import: 0JyQ0i6OVRYN/icon
@@ -51,9 +52,11 @@ function PlasmicReviews__RenderFunc(props) {
     () =>
       Object.assign(
         {
+          imageUrl:
+            "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg",
           name: "Anonymous",
           content: "...",
-          createdAt: "2024-04-10T07:33:41.927Z"
+          createdAt: "0"
         },
         props.args
       ),
@@ -80,6 +83,7 @@ function PlasmicReviews__RenderFunc(props) {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
+        plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.review
       )}
     >
