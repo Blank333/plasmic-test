@@ -118,7 +118,20 @@ function PlasmicHomepage__RenderFunc(props) {
         path: "dialog.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.form.isSubmitting;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "form.value",
@@ -334,7 +347,7 @@ function PlasmicHomepage__RenderFunc(props) {
                         <FormItemWrapper
                           className={classNames(
                             "__wab_instance",
-                            sty.formField__quOkH
+                            sty.formField__ePwO
                           )}
                           label={"Name"}
                           name={"name"}
@@ -342,18 +355,19 @@ function PlasmicHomepage__RenderFunc(props) {
                           <AntdInput
                             className={classNames(
                               "__wab_instance",
-                              sty.input__eFqgW
+                              sty.input__gYsSr
                             )}
                           />
                         </FormItemWrapper>
                         <FormItemWrapper
                           className={classNames(
                             "__wab_instance",
-                            sty.formField___9Y0QZ
+                            sty.formField__rwUcb
                           )}
                           initialValue={5}
                           label={"Rating"}
                           name={"rating"}
+                          rules={[]}
                         >
                           <AntdInputNumber
                             className={classNames(
@@ -366,7 +380,7 @@ function PlasmicHomepage__RenderFunc(props) {
                         <FormItemWrapper
                           className={classNames(
                             "__wab_instance",
-                            sty.formField__lssSx
+                            sty.formField__mKix2
                           )}
                           label={"Review"}
                           name={"content"}
@@ -381,7 +395,7 @@ function PlasmicHomepage__RenderFunc(props) {
                         <FormItemWrapper
                           className={classNames(
                             "__wab_instance",
-                            sty.formField___6MRap
+                            sty.formField__zCHfl
                           )}
                           hidden={true}
                           initialValue={"0"}
@@ -391,14 +405,14 @@ function PlasmicHomepage__RenderFunc(props) {
                           <AntdInput
                             className={classNames(
                               "__wab_instance",
-                              sty.input___5JqwK
+                              sty.input__qrX3
                             )}
                           />
                         </FormItemWrapper>
                         <FormItemWrapper
                           className={classNames(
                             "__wab_instance",
-                            sty.formField__bk79O
+                            sty.formField__dlTtz
                           )}
                           hidden={true}
                           initialValue={
@@ -410,14 +424,14 @@ function PlasmicHomepage__RenderFunc(props) {
                           <AntdInput
                             className={classNames(
                               "__wab_instance",
-                              sty.input__obekk
+                              sty.input__a78Jb
                             )}
                           />
                         </FormItemWrapper>
                         <AntdButton
                           className={classNames(
                             "__wab_instance",
-                            sty.button___3Rj4W
+                            sty.button__vmo7X
                           )}
                           submitsForm={true}
                           type={"primary"}
@@ -426,7 +440,7 @@ function PlasmicHomepage__RenderFunc(props) {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__xsaCy
+                              sty.text__gkLrY
                             )}
                           >
                             {"Submit"}
